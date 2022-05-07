@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <script>
+var packList = [];
+
+var newCardArt =
+[
+        "Blue-Eyes Alternative Ultimate Dragon",
+        "Magician of Black Chaos MAX",
+        "Exodia, the Legendary Defender",
+        "Palladium Oracle Mana",
+        "Red-Eyes Alternative Black Dragon",
+        "Neo Kaiser Glider"
+];
+
+var newOGCard =
+[
+        "Obelisk the Tormentor",
+        "Slifer the Sky Dragon",
+        "The Winged Dragon of Ra",
+        "Raigeki",
+        "Monster Reborn"
+];
+
+var newCard =
+[
+        "Dimension Shifter",
+        "Nibiru, the Primal Being",
+        "Dark Ruler No More"
+];
+
+
+
+window.onload = function()
+{
+        packList.push(document.getElementById("card 1"));
+        packList.push(document.getElementById("card 2"));
+        packList.push(document.getElementById("card 3"));
+        packList.push(document.getElementById("card 4"));
+        packList.push(document.getElementById("card 5"));
+  document.getElementById("myButton").addEventListener("click", incr);
+}
+function incr() 
+{
+        var r1 = Math.floor(Math.random() * 6);
+        var r2 = Math.floor(Math.random() * 5);
+        if(r2>=r1){r2+=1;}
+        var r3 = Math.floor(Math.random() * 5);
+        var r4 = Math.floor(Math.random() * 4);
+        if(r4>=r3){r4+=1;}
+        var r5 = Math.floor(Math.random() * 3);
+        packList[0].innerHTML =newCardArt[r1];
+        packList[1].innerHTML =newCardArt[r2];
+        packList[2].innerHTML =newOGCard[r3];
+        packList[3].innerHTML =newOGCard[r4];
+        packList[4].innerHTML =newCard[r5];
+}
+
+        </script>
+</head>
+<body>
+        <button id="myButton">mega tin promo generator</button>
+        <p id="card 1">0</p>
+        <p id="card 2">0</p>
+        <p id="card 3">0</p>
+        <p id="card 4">0</p>
+        <p id="card 5">0</p>
+
+    </body>
+</html>
