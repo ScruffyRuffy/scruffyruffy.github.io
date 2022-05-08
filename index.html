@@ -3,6 +3,25 @@
 <head>
         <script>
 var packList = [];
+var pulls=
+{
+        "Blue-Eyes Alternative Ultimate Dragon": 0,
+        "Magician of Black Chaos MAX": 0,
+        "Exodia, the Legendary Defender": 0,
+        "Palladium Oracle Mana": 0,
+        "Red-Eyes Alternative Black Dragon": 0,
+        "Neo Kaiser Glider": 0,   
+        "Obelisk the Tormentor": 0,
+        "Slifer the Sky Dragon": 0,
+        "The Winged Dragon of Ra": 0,
+        "Raigeki": 0,
+        "Monster Reborn": 0,
+        "Dimension Shifter": 0,
+        "Nibiru, the Primal Being": 0,
+        "Dark Ruler No More": 0
+
+
+};
 
 var newCardArt =
 [
@@ -39,10 +58,13 @@ window.onload = function()
         packList.push(document.getElementById("card 3"));
         packList.push(document.getElementById("card 4"));
         packList.push(document.getElementById("card 5"));
+        packList.push(document.getElementById("test"));
   document.getElementById("myButton").addEventListener("click", incr);
 }
 function incr() 
 {
+        for (let index = 0; index <  document.getElementById("quant").value; index++) {
+       
         var r1 = Math.floor(Math.random() * 6);
         var r2 = Math.floor(Math.random() * 5);
         if(r2>=r1){r2+=1;}
@@ -50,11 +72,24 @@ function incr()
         var r4 = Math.floor(Math.random() * 4);
         if(r4>=r3){r4+=1;}
         var r5 = Math.floor(Math.random() * 3);
-        packList[0].innerHTML =newCardArt[r1];
-        packList[1].innerHTML =newCardArt[r2];
-        packList[2].innerHTML =newOGCard[r3];
-        packList[3].innerHTML =newOGCard[r4];
-        packList[4].innerHTML =newCard[r5];
+        
+        pulls[newCardArt[r1]]+=1;
+        
+        pulls[newCardArt[r2]]+=1;
+        
+        pulls[newOGCard[r3]]+=1;
+        
+        pulls[newOGCard[r4]]+=1;
+        
+        pulls[newCard[r5]]+=1;
+        }
+        console.log(pulls)
+        packList[5].innerHTML="";
+        for(var key in pulls) 
+        {
+                packList[5].innerHTML+=(key+": "+( pulls[key])+"<br>");
+
+        }
 }
 
         </script>
@@ -63,11 +98,8 @@ function incr()
 <label for="quant">Quantity (between 1 and 20):</label>
 <input type="number" id="quant" min=1 max=20>
         <button id="myButton">mega tin promo generator</button>
-        <p id="card 1">0</p>
-        <p id="card 2">0</p>
-        <p id="card 3">0</p>
-        <p id="card 4">0</p>
-        <p id="card 5">0</p>
+        <p id="test"></p>
+
 
     </body>
 </html>
